@@ -39,11 +39,17 @@ def lidur2():
 @route('/lidur2')
 def sida2():
     x = request.query.stafur
-    return '''
-    <h3>Stafurinn þinn er:</h3>
-    <img height="200px" src="myndir/''',x,'''.png">
-    <a href="2">Til baka</a>
-    '''
+    if x == "y" or x == "v" or x == "z":
+        return '''
+        <h3>Stafurinn þinn er:</h3>
+        <img height="200px" src="myndir/''',x,'''.png">
+        <a href="2">Til baka</a>
+        '''
+    else:
+        return '''
+        <h3>Síða ekki til</h3>
+        <a href="2">Til baka</a>
+        '''
 @error(404)
 def villa(error):
     return '''
